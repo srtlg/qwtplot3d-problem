@@ -1,6 +1,7 @@
 SET srcdir=%~dp0
 SET srcdir=%srcdir%src
 SET QTDIR=C:\Qt\5.9.9\msvc2015_64
+SET QTDIR=C:\Qt\5.14.1\msvc2017_64
 IF NOT EXIST %QTDIR%\bin\qmake.exe EXIT /B 10
 IF NOT EXIST %QTDIR%\bin\windeployqt.exe EXIT /B 11
 IF NOT EXIST %srcdir%\qwtplot3d.pro EXIT /B 21

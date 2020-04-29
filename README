@@ -72,7 +72,12 @@ Self-build Qt versions
     mutter: both applications work w/o problems
 
 
-### Windows 10 (Qt 5.9.9, VS 2015)
+### Windows 10 (Qt 5.9.9 and 5.14.1, VS 2015)
 
 	call build-svn.bat
 	call build-sintegrial.bat
+
+| Qt version    | simpleplot/VBox  | simpleplot/Acer |
+|---------------+------------------+-----------------|
+| 5.9.9         | displays nothing | works           |
+| 5.14.1        | displays nothing | works           |
