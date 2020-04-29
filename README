@@ -33,7 +33,7 @@ Arch (Qt 5.14.2-1)
     #6  main (argc=<optimized out>, argv=<optimized out>) at ../../src/qwtplot3d/examples/simpleplot/simpleplot.cpp:121
 
 
-    ./build-sintegrial/test_qwtplot3d_sintegrial
+    ./build-sintegrial/test_qwtplot3d
 
     Thread 1 "test_qwtplot3d" received signal SIGSEGV, Segmentation fault.
     QOpenGLContext::makeCurrent (this=this@entry=0x0, surface=0x5555555ffa90) at kernel/qopenglcontext.cpp:963
