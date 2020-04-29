@@ -1,0 +1,6 @@
+[submodule "src/qwtplot3d"]
+	path = src/qwtplot3d
+	url = https://github.com/srtlg/qwtplot3d.git
+[submodule "src/qwtplot3d-sintegrial"]
+	path = src/qwtplot3d-sintegrial
+	url = https://github.com/sintegrial/qwtplot3d.git

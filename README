@@ -1,0 +1,65 @@
+# Illustration for the problem of qwtplot3d with recent Qt5 versions
+
+## Building
+
+    export QMAKE=qmake-qt5
+
+    sh build-svn.sh
+
+    sh build-sintegrial.sh
+
+
+## Problem
+
+When closing the the example application, it receives a SIGSEGV.
+
+Arch (Qt 5.14.2-1)
+
+
+    ./build-svn/test_qwtplot3d
+
+    Thread 1 "test_qwtplot3d" received signal SIGSEGV, Segmentation fault.
+    QOpenGLContext::makeCurrent (this=this@entry=0x0, surface=0x555555620cd0) at kernel/qopenglcontext.cpp:963
+    963	kernel/qopenglcontext.cpp: No such file or directory.
+    (gdb) bt
+    #0  QOpenGLContext::makeCurrent (this=this@entry=0x0, surface=0x555555620cd0) at kernel/qopenglcontext.cpp:963
+    #1  0x00007ffff7ebe22c in QGLContext::makeCurrent (this=<optimized out>) at qgl.cpp:3586
+    #2  0x00007ffff7ec4291 in QGLWidgetPrivate::makeCurrent (this=0x555555621da0) at qgl.cpp:4076
+    #3  0x00007ffff7ec42ba in QGLWidget::makeCurrent (this=this@entry=0x7fffffffdcc0) at qgl.cpp:4071
+    #4  0x000055555556d6f4 in Qwt3D::Plot3D::~Plot3D (this=0x7fffffffdcc0, __in_chrg=<optimized out>)
+        at ../../src/qwtplot3d/src/qwt3d_plot.cpp:60
+    #5  0x000055555555ffa9 in Plot::~Plot (this=0x7fffffffdcc0, __in_chrg=<optimized out>)
+        at ../../src/qwtplot3d/examples/simpleplot/simpleplot.cpp:48
+    #6  main (argc=<optimized out>, argv=<optimized out>) at ../../src/qwtplot3d/examples/simpleplot/simpleplot.cpp:121
+
+
+    ./build-sintegrial/test_qwtplot3d_sintegrial
+
+    Thread 1 "test_qwtplot3d" received signal SIGSEGV, Segmentation fault.
+    QOpenGLContext::makeCurrent (this=this@entry=0x0, surface=0x5555555ffa90) at kernel/qopenglcontext.cpp:963
+    963	kernel/qopenglcontext.cpp: No such file or directory.
+    (gdb) bt
+    #0  QOpenGLContext::makeCurrent (this=this@entry=0x0, surface=0x5555555ffa90) at kernel/qopenglcontext.cpp:963
+    #1  0x00007ffff7ebe22c in QGLContext::makeCurrent (this=<optimized out>) at qgl.cpp:3586
+    #2  0x00007ffff7ec4291 in QGLWidgetPrivate::makeCurrent (this=0x555555600b60) at qgl.cpp:4076
+    #3  0x00007ffff7ec42ba in QGLWidget::makeCurrent (this=this@entry=0x7fffffffc4b0) at qgl.cpp:4071
+    #4  0x000055555557017a in Qwt3D::Plot3D::~Plot3D (this=0x7fffffffc4b0, __in_chrg=<optimized out>)
+        at ../../src/qwtplot3d-sintegrial/src/qwt3d_plot3d.cpp:58
+    #5  0x000055555555e749 in Plot::~Plot (this=0x7fffffffc4b0, __in_chrg=<optimized out>)
+        at ../../src/qwtplot3d-sintegrial/examples/simpleplot/simpleplot.cpp:31
+    #6  main (argc=<optimized out>, argv=<optimized out>) at ../../src/qwtplot3d-sintegrial/examples/simpleplot/simpleplot.cpp:76
+
+
+Fedora 31 (Qt
+
+
+Self-build Qt versions
+
+| Qt version   | simpleplot |
+|--------------+------------|
+| 5.6.3-debug  | works      |
+| 5.7.1-debug  | works      |
+| 5.9.9-debug  | works      |
+| 5.12.8-debug | seg fault  |
+| 5.14.2-debug | seg fault  |
+
