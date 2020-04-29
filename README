@@ -13,7 +13,7 @@
 
 When closing the the example application, it receives a SIGSEGV.
 
-Arch (Qt 5.14.2-1, X.Org 1.20.8, RADEON)
+### Arch (Qt 5.14.2-1, X.Org 1.20.8, RADEON)
 
     pacman -S qt5-base make glu
 
@@ -50,8 +50,19 @@ Arch (Qt 5.14.2-1, X.Org 1.20.8, RADEON)
         at ../../src/qwtplot3d-sintegrial/examples/simpleplot/simpleplot.cpp:31
     #6  main (argc=<optimized out>, argv=<optimized out>) at ../../src/qwtplot3d-sintegrial/examples/simpleplot/simpleplot.cpp:76
 
+Self-build Qt versions
 
-Fedora 31 (Qt 5.13.2, Wayland, i915drmfb)
+| Qt version   | simpleplot |
+|--------------+------------|
+| 4.8.7-31     | works      |
+| 5.6.3-debug  | works      |
+| 5.7.1-debug  | works      |
+| 5.9.9-debug  | works      |
+| 5.12.8-debug | seg fault  |
+| 5.14.2-debug | seg fault  |
+
+
+### Fedora 31 (Qt 5.13.2, Wayland, i915drmfb)
 
     dnf install make qt5-qtbase-devel mesa-libGLU-devel
 
@@ -61,13 +72,4 @@ Fedora 31 (Qt 5.13.2, Wayland, i915drmfb)
     mutter: both applications work w/o problems
 
 
-Self-build Qt versions
-
-| Qt version   | simpleplot |
-|--------------+------------|
-| 5.6.3-debug  | works      |
-| 5.7.1-debug  | works      |
-| 5.9.9-debug  | works      |
-| 5.12.8-debug | seg fault  |
-| 5.14.2-debug | seg fault  |
 
