@@ -2,6 +2,8 @@
 
 ## Building
 
+    # install the packeges for Qt5 development and GL/glu.h
+
     sh build-svn.sh
 
     sh build-sintegrial.sh
