@@ -2,6 +2,7 @@ SET srcdir=%~dp0
 SET srcdir=%srcdir%src
 SET QTDIR=C:\Qt\5.9.9\msvc2015_64
 IF NOT EXIST %QTDIR%\bin\qmake.exe EXIT /B 10
+IF NOT EXIST %QTDIR%\bin\windeployqt.exe EXIT /B 11
 IF NOT EXIST %srcdir%\qwtplot3d-sintegrial.pro EXIT /B 21
 IF NOT EXIST %srcdir%\test_qwtplot3d-sintegrial.pro EXIT /B 21
 IF EXIST build-sintegrial DEL /S /Q build-sintegrial
@@ -23,6 +24,6 @@ CD build-test-qwtplot3d
 nmake
 CD ..
 
-IF EXIST test_qwtplot3d.exe CALL "%srcdir%\..\copy-qtdlls.cmd" "%QTDIR%\bin"
+IF EXIST test_qwtplot3d.exe "%QTDIR%\bin\windeployqt.exe" test_qwtplot3d.exe
 
 CD ..

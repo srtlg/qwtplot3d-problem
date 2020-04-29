@@ -72,7 +72,7 @@ Self-build Qt versions
     mutter: both applications work w/o problems
 
 
-### Windows 10 (Qt 5.14, VS 2015)
+### Windows 10 (Qt 5.9.9, VS 2015)
 
 	call build-svn.bat
 	call build-sintegrial.bat
