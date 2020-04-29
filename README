@@ -2,8 +2,6 @@
 
 ## Building
 
-    export QMAKE=qmake-qt5
-
     sh build-svn.sh
 
     sh build-sintegrial.sh
@@ -13,8 +11,9 @@
 
 When closing the the example application, it receives a SIGSEGV.
 
-Arch (Qt 5.14.2-1)
+Arch (Qt 5.14.2-1, X.Org 1.20.8, RADEON)
 
+    pacman -S qt5-base make glu
 
     ./build-svn/test_qwtplot3d
 
@@ -50,7 +49,14 @@ Arch (Qt 5.14.2-1)
     #6  main (argc=<optimized out>, argv=<optimized out>) at ../../src/qwtplot3d-sintegrial/examples/simpleplot/simpleplot.cpp:76
 
 
-Fedora 31 (Qt
+Fedora 31 (Qt 5.13.2, Wayland, i915drmfb)
+
+    dnf install make qt5-qtbase-devel mesa-libGLU-devel
+
+    ./build-svn/test_qwtplot3d
+    ./build-sintegrial/test_qwtplot3d
+    sway: both applications do not show anything
+    mutter: both applications work w/o problems
 
 
 Self-build Qt versions
