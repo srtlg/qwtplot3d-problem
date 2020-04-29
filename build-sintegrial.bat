@@ -23,4 +23,6 @@ CD build-test-qwtplot3d
 nmake
 CD ..
 
+IF EXIST test_qwtplot3d.exe CALL "%srcdir%\..\copy-qtdlls.cmd" "%QTDIR%\bin"
+
 CD ..

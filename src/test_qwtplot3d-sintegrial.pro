@@ -13,6 +13,7 @@ INCLUDEPATH += $${DESTDIR}/include
 }
 
 LIBS += -L$${DESTDIR}/lib -lqwtplot3d
-LIBS += -lGLU
+linux:LIBS += -lGLU
+win32:LIBS += -lOpenGL32 -lGlu32
 
 SOURCES = qwtplot3d-sintegrial/examples/simpleplot/simpleplot.cpp
